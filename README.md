@@ -2,6 +2,8 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
+//alunos: Jheniffer, Viccenzo e Yasmin - 2024
+
 // Definindo as portas
 #define RELAY_PIN 8           // Porta de controle do relé
 #define MOISTURE_SENSOR_PIN A0 // Porta analógica do sensor de umidade
@@ -11,7 +13,7 @@
 #define SCREEN_HEIGHT 64
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
-// Definindo os limites do sensor de umidade (ajuste conforme necessário)
+// Definindo os limites do sensor de umidade
 const int DRY_VALUE = 800;    // Valor analógico quando o solo está seco
 const int WET_VALUE = 300;    // Valor analógico quando o solo está molhado
 
@@ -41,7 +43,7 @@ void loop() {
 
   // Mapear o valor analógico para porcentagem (0 = seco, 100 = molhado)
   int moisturePercentage = map(sensorValue, DRY_VALUE, WET_VALUE, 0, 100);
-  moisturePercentage = constrain(moisturePercentage, 0, 100); // Garantir valores entre 0 e 100
+  moisturePercentage = constrain(moisturePercentage, 0, 100);
 
   // Exibir o valor no display OLED
   display.clearDisplay();
